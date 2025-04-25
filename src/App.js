@@ -22,7 +22,7 @@ function App() {
 
       const prompt = `👑 Welcome Lazy Lord ${ref}.\nYou have ${tokens} tokens and ${recruits} loyal clones.\n\nUser message: "${input}".\nRespond as if you are their empire advisor.`;
 
-      const response = await axios.post('/api/openai', { prompt });
+      const response = await axios.post('https://lazy-lord-proxy.onrender.com/api/openai', { prompt });
 
       const botReply = { role: 'bot', content: response.data.reply };
       setMessages((prev) => [...prev, botReply]);
