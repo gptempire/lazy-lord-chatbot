@@ -47,9 +47,16 @@ function App() {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Type your command..."
-        style={{ width: '80%', padding: '0.5rem' }}
-      />
+        onKeyDown={(e) => {
+           if (e.key === 'Enter') {
+               e.preventDefault();
+               sendMessage();
+           }
+      }}
+      placeholder="Type your command..."
+      style={{ width: '80%', padding: '0.5rem' }}
+/>
+
       <button onClick={sendMessage} style={{ padding: '0.5rem', marginLeft: '1rem' }} disabled={loading}>
         {loading ? 'Thinking...' : 'Send'}
       </button>
